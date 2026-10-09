@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>NEXUS EXAM HUB | Class XII</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">N<span>X</span></div>
+        <div><div class="brand-name">NEXUS</div><div class="brand-sub">EXAM HUB · CLASS XII</div></div>
+      </div>
+      <div class="board-chip">BIHAR BOARD · 2026–27*</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-view="dashboard"><span>▦</span> Dashboard</button>
+        <button class="nav-item" data-view="syllabus"><span>☷</span> Syllabus tracker</button>
+        <button class="nav-item" data-view="test"><span>◷</span> PDF test room</button>
+        <button class="nav-item" data-view="ai"><span>✦</span> AI study prompt</button>
+        <button class="nav-item" data-view="backup"><span>⇅</span> Backup & settings</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="mini-progress"><div class="mini-progress-top"><span>Overall progress</span><strong id="sidePercent">0%</strong></div><div class="progress-track"><div id="sideProgress" class="progress-fill"></div></div></div>
+        <p class="side-note">Your study tracker stays in this browser on this device. Export backups regularly.</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="menuToggle" class="icon-btn mobile-only" aria-label="Toggle menu">☰</button>
+        <div><div class="eyebrow" id="pageEyebrow">YOUR PERSONAL STUDY WORKSPACE</div><h1 id="pageTitle">Dashboard</h1></div>
+        <div class="top-actions"><span class="live-dot"></span><span class="saved-label" id="saveStatus">Local save ready</span><button class="icon-btn" id="quickBackup" title="Export backup">⇩</button></div>
+      </header>
+
+      <section class="view active" id="view-dashboard">
+        <div class="hero">
+          <div class="hero-copy"><div class="hero-kicker">PREPARE · REVISE · TEST · IMPROVE</div><h2>Small steps.<br><span>Serious results.</span></h2><p>Track every chapter, turn completed topics into a focused AI study prompt, and sit your test with a PDF and a built-in timer.</p><button class="btn btn-primary" data-go="syllabus">Continue studying <span>→</span></button></div>
+          <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="book-illustration"><div class="book-spine"></div><div class="book-lines"></div><div class="book-tag">NEXUS<br><small>12TH</small></div></div><div class="floating-note note-a">✓ Topic tracked</div><div class="floating-note note-b">90:00<br><small>Test timer</small></div></div>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon purple">☷</div><div class="stat-label">Subjects</div><div class="stat-value">5</div><div class="stat-foot">Your complete study set</div></article>
+          <article class="stat-card"><div class="stat-icon blue">✓</div><div class="stat-label">Topics completed</div><div class="stat-value" id="completedStat">0 <small>/ 0</small></div><div class="stat-foot" id="remainingStat">Every check moves you forward</div></article>
+          <article class="stat-card"><div class="stat-icon green">↗</div><div class="stat-label">Overall completion</div><div class="stat-value" id="percentStat">0%</div><div class="stat-foot">Across active syllabus topics</div></article>
+          <article class="stat-card"><div class="stat-icon amber">◷</div><div class="stat-label">Tests recorded</div><div class="stat-value" id="testsStat">0</div><div class="stat-foot">Only attempts you record</div></article>
+        </div>
+        <div class="dashboard-grid">
+          <article class="panel"><div class="panel-heading"><div><div class="eyebrow">YOUR ROADMAP</div><h3>Subjects at a glance</h3></div><button class="text-btn" data-go="syllabus">Open tracker →</button></div><div id="subjectOverview" class="subject-overview"></div></article>
+          <article class="panel cycle-panel"><div class="panel-heading"><div><div class="eyebrow">REPEATABLE ROUTINE</div><h3>Three-day cycle</h3></div><span class="tag">CUSTOMISE IN SETTINGS</span></div><div class="cycle-steps"><div class="cycle-step"><div class="step-number">01</div><div><strong>Preparation</strong><p>Study and tick topics.</p></div></div><div class="cycle-step"><div class="step-number">02</div><div><strong>Revision</strong><p>Recall, write and practise.</p></div></div><div class="cycle-step"><div class="step-number">03</div><div><strong>Test</strong><p>Open a PDF and start the timer.</p></div></div></div><button class="btn btn-secondary full" data-go="test">Open PDF test room</button></article>
+        </div>
+        <div class="notice"><span class="notice-icon">ⓘ</span><div><strong>Syllabus verification matters.</strong><p>This tracker starts with a broad Class 12 NCERT/Bihar Board-aligned chapter list. BSEB can revise, exclude or prescribe different content. Check your current official syllabus and textbook edition, especially Hindi and English chapter titles, before treating the list as final.</p></div></div>
+      </section>
+
+      <section class="view" id="view-syllabus">
+        <div class="section-intro"><div><div class="eyebrow">CHECK OFF AS YOU LEARN</div><h2>Chapter & topic tracker</h2><p>Click a topic to mark it complete. Completed topics get a strike-through. Search, filter and collapse chapters to keep the screen focused.</p></div><div class="ring-card"><div class="ring" id="progressRing"><span id="ringPercent">0%</span></div><span>completed</span></div></div>
+        <div class="toolbar"><label class="search-box"><span>⌕</span><input id="topicSearch" type="search" placeholder="Search chapter or topic…"></label><select id="subjectFilter" aria-label="Filter subject"><option value="all">All subjects</option><option>Biology</option><option>Physics</option><option>Chemistry</option><option>English</option><option>Hindi</option></select><select id="completionFilter" aria-label="Filter completion"><option value="all">All topics</option><option value="todo">Not completed</option><option value="done">Completed</option></select><button class="btn btn-secondary" id="collapseAll">Collapse all</button></div>
+        <div id="syllabusList" class="syllabus-list"></div>
+        <div class="footer-hint">Tip: Use “AI study prompt” to copy only the topics you have actually marked complete.</div>
+      </section>
+
+      <section class="view" id="view-test">
+        <div class="section-intro"><div><div class="eyebrow">FOCUSED EXAM MODE</div><h2>PDF test room</h2><p>Upload a question-paper PDF, open it in the viewer, then start your timer when you are ready to begin.</p></div><div class="test-badge"><span class="live-dot"></span> 90-MINUTE SESSION</div></div>
+        <div class="test-layout">
+          <div class="panel upload-panel"><div class="panel-heading"><div><div class="eyebrow">STEP 1</div><h3>Choose your question paper</h3></div><span class="step-pill">PDF</span></div>
+            <label class="drop-zone" id="dropZone"><input type="file" id="pdfInput" accept="application/pdf,.pdf"><span class="upload-icon">↑</span><strong>Choose a PDF file</strong><span>Tap to browse your device</span><small>Your PDF is opened locally in this browser. It is not uploaded to a server.</small></label>
+            <div class="file-row hidden" id="fileRow"><div class="pdf-icon">PDF</div><div class="file-meta"><strong id="fileName">paper.pdf</strong><span id="fileSize"></span></div><button class="icon-btn" id="removePdf" aria-label="Remove PDF">×</button></div>
+            <div class="timer-box"><div class="timer-label">TIME REMAINING</div><div class="timer" id="timerDisplay">90:00</div><div class="timer-state" id="timerState">Paper not started</div><div class="timer-actions"><button class="btn btn-primary" id="startTimer" disabled>Start test timer</button><button class="btn btn-secondary" id="pauseTimer" disabled>Pause</button><button class="btn btn-quiet" id="resetTimer" disabled>Reset</button></div></div>
+            <div class="test-rules"><strong>Before you start</strong><ul><li>Open and check that the PDF is readable.</li><li>Starting the timer begins your 90-minute attempt.</li><li>Use Pause only if you intentionally want to pause this personal practice session.</li><li>Submit your answers separately to an AI for marking after the test.</li></ul></div>
+            <button class="btn btn-secondary full" id="recordTest" disabled>Record completed attempt</button><p class="microcopy">Recording stores date and duration only. Enter marks in Progress after checking your answers.</p>
+          </div>
+          <div class="panel pdf-panel"><div class="pdf-toolbar"><div><div class="eyebrow">STEP 2</div><h3>Question paper viewer</h3></div><button id="openNewTab" class="btn btn-secondary btn-small" disabled>Open separately ↗</button></div><div id="pdfPlaceholder" class="pdf-placeholder"><div class="placeholder-symbol">▤</div><strong>Your question paper will appear here</strong><p>Upload a PDF on the left to view it inside this test room.</p></div><iframe id="pdfViewer" title="Uploaded question paper PDF" class="pdf-viewer hidden"></iframe></div>
+        </div>
+        <div class="notice"><span class="notice-icon">ⓘ</span><div><strong>Honest timer behaviour</strong><p>The timer counts down while this page is open. It recalculates after returning to the tab and stores the current attempt in this browser. Browser restrictions, device sleep or file-viewer limitations can affect behaviour. This is a self-study timer, not a proctored examination.</p></div></div>
+      </section>
+
+      <section class="view" id="view-ai">
+        <div class="section-intro"><div><div class="eyebrow">TURN STUDY INTO PRACTICE</div><h2>AI study prompt builder</h2><p>Generate a clean prompt from completed topics. Paste it into your chosen AI chat and ask it to create a printable practice-paper PDF.</p></div><div class="prompt-mark">✦</div></div>
+        <div class="panel prompt-panel"><div class="panel-heading"><div><div class="eyebrow">PERSONALISED FROM YOUR CHECKLIST</div><h3>Your selected study material</h3></div><span class="tag" id="selectedCount">0 TOPICS</span></div><div class="prompt-options"><label>Test style<select id="testStyle"><option>Board-style practice paper</option><option>Conceptual and application-based</option><option>Mixed revision test</option><option>MCQ-focused test</option><option>Long-answer practice</option></select></label><label>Duration<select id="testDuration"><option>90 minutes</option><option>30 minutes</option><option>45 minutes</option><option>60 minutes</option><option>120 minutes</option></select></label><label>Language<select id="testLanguage"><option>English</option><option>Hindi</option><option>Simple Hinglish explanations, English questions</option></select></label><label>Difficulty mix<select id="difficulty"><option>Balanced board-level</option><option>Mostly foundational</option><option>Mostly challenging</option><option>Board + NEET conceptual practice</option></select></label></div><div class="selected-topics" id="selectedTopics"><div class="empty-state">Mark topics as completed in the tracker to see them here.</div></div><label class="field-label" for="extraInstructions">Extra instructions (optional)</label><textarea id="extraInstructions" rows="3" placeholder="Example: include diagrams, numerical problems, marking scheme, answer key in a separate section…"></textarea><div class="prompt-actions"><button class="btn btn-primary" id="buildPrompt">Generate AI prompt</button><button class="btn btn-secondary" id="copyPrompt" disabled>Copy prompt</button></div><textarea id="promptOutput" class="prompt-output" rows="14" placeholder="Your tailored AI prompt will appear here…" spellcheck="false"></textarea><p class="microcopy">This page does not itself call an AI or create a PDF. Copy the prompt into your AI chat; download the PDF it generates, then upload that PDF in the test room.</p></div>
+      </section>
+
+      <section class="view" id="view-backup">
+        <div class="section-intro"><div><div class="eyebrow">YOUR DATA, YOUR CONTROL</div><h2>Backup & settings</h2><p>Save your checklist before switching browsers or clearing site data.</p></div><div class="backup-mark">⇅</div></div>
+        <div class="backup-grid"><div class="panel"><div class="eyebrow">LOCAL DATA</div><h3>Export or restore</h3><p class="muted">Progress is stored in this browser using localStorage. It does not automatically sync across devices.</p><button class="btn btn-primary full" id="exportBackup">Download backup (.json)</button><label class="btn btn-secondary full import-label">Import backup JSON<input type="file" id="importBackup" accept=".json,application/json"></label><button class="btn btn-quiet full" id="copyBackup">Copy backup text</button><textarea id="backupText" rows="9" placeholder="Exported backup text appears here. You can also paste a backup here and click Restore pasted backup."></textarea><button class="btn btn-secondary full" id="restorePasted">Restore pasted backup</button><div id="backupMessage" class="inline-message" role="status"></div></div>
+        <div class="panel"><div class="eyebrow">PERSONAL SETUP</div><h3>Study preferences</h3><label class="field-label">Board / exam year<input id="boardYear" value="Bihar Board Class 12 · 2027"></label><label class="field-label">Daily reminder target<input id="reminderTime" type="time" value="22:00"></label><p class="muted">Reminder target is saved as a preference only. This standalone page cannot send notifications while closed unless a separate notification-capable app or installed PWA setup is added.</p><button class="btn btn-secondary full" id="saveSettings">Save preferences</button><div id="settingsMessage" class="inline-message" role="status"></div><hr><button class="btn btn-danger full" id="clearProgress">Clear all progress</button><p class="microcopy">This deletes saved tracker data and test history from this browser. Export a backup first.</p></div></div>
+        <div class="notice"><span class="notice-icon">!</span><div><strong>About the syllabus list</strong><p>Use this tracker as an editable planning list, not as proof of the official syllabus. Confirm the current BSEB notification, chapter exclusions and the exact editions prescribed by your school. This is especially important for language books and any rationalised textbook content.</p></div></div>
+      </section>
+      <footer class="app-footer"><span>© NEXUS EXAM HUB · PERSONAL STUDY TOOL</span><span>Built for focused preparation</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
